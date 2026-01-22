@@ -1,42 +1,49 @@
 @import 'tailwindcss';
 
-/* Global theme tokens */
-:root {
-  --background: #fafafa;
-  --foreground: #18181b;
-  --card: #ffffff;
-  --card-foreground: #18181b;
-  --border: #e4e4e7;
-  --input: #e4e4e7;
-  --ring: #18181b;
+@theme {
+  --color-background: oklch(100% 0 0);
+  --color-foreground: oklch(9% 0.005 285.8);
+  --color-card: oklch(100% 0 0);
+  --color-card-foreground: oklch(9% 0.005 285.8);
+  --color-popover: oklch(100% 0 0);
+  --color-popover-foreground: oklch(9% 0.005 285.8);
+  --color-primary: oklch(9.6% 0.006 285.8);
+  --color-primary-foreground: oklch(98% 0 0);
+  --color-secondary: oklch(95.9% 0.005 285.8);
+  --color-secondary-foreground: oklch(9.6% 0.006 285.8);
+  --color-muted: oklch(95.9% 0.005 285.8);
+  --color-muted-foreground: oklch(46.1% 0.004 285.8);
+  --color-accent: oklch(95.9% 0.005 285.8);
+  --color-accent-foreground: oklch(9.6% 0.006 285.8);
+  --color-destructive: oklch(60.2% 0.177 29.2);
+  --color-destructive-foreground: oklch(98% 0 0);
+  --color-border: oklch(90% 0.006 285.8);
+  --color-input: oklch(90% 0.006 285.8);
+  --color-ring: oklch(9.6% 0.006 285.8);
+  --radius: 0.5rem;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
-  --font-sans:
-    ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    'Helvetica Neue', Arial, sans-serif;
-  --font-mono:
-    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
-    monospace;
-}
-
-/* Dark mode */
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #09090b;
-    --foreground: #fafafa;
-    --card: #18181b;
-    --card-foreground: #fafafa;
-    --border: #27272a;
-    --input: #27272a;
-    --ring: #fafafa;
+  @theme {
+    --color-background: oklch(9% 0.005 285.8);
+    --color-foreground: oklch(98% 0 0);
+    --color-card: oklch(9% 0.005 285.8);
+    --color-card-foreground: oklch(98% 0 0);
+    --color-popover: oklch(9% 0.005 285.8);
+    --color-popover-foreground: oklch(98% 0 0);
+    --color-primary: oklch(98% 0 0);
+    --color-primary-foreground: oklch(9.6% 0.006 285.8);
+    --color-secondary: oklch(15.9% 0.004 285.8);
+    --color-secondary-foreground: oklch(98% 0 0);
+    --color-muted: oklch(15.9% 0.004 285.8);
+    --color-muted-foreground: oklch(64.9% 0.005 285.8);
+    --color-accent: oklch(15.9% 0.004 285.8);
+    --color-accent-foreground: oklch(98% 0 0);
+    --color-destructive: oklch(30.6% 0.132 29.2);
+    --color-destructive-foreground: oklch(98% 0 0);
+    --color-border: oklch(15.9% 0.004 285.8);
+    --color-input: oklch(15.9% 0.004 285.8);
+    --color-ring: oklch(83.9% 0.005 285.8);
   }
 }
 
@@ -46,9 +53,18 @@
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-sans);
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family:
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    'Helvetica Neue',
+    Arial,
+    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -64,22 +80,12 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #d4d4d8;
+  background: color-mix(in oklch, var(--color-muted-foreground) 30%, transparent);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #a1a1aa;
-}
-
-@media (prefers-color-scheme: dark) {
-  ::-webkit-scrollbar-thumb {
-    background: #3f3f46;
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    background: #52525b;
-  }
+  background: color-mix(in oklch, var(--color-muted-foreground) 50%, transparent);
 }
 
 /* Line clamp utilities */

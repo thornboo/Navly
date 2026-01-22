@@ -7,7 +7,7 @@
 1. ✅ 创建了 Supabase 客户端配置 (`lib/supabase.ts`)
 2. ✅ 更新了数据加载逻辑支持 Supabase (`lib/data.ts`)
 3. ✅ 更新了主页面支持异步数据加载 (`app/page.tsx`)
-4. ✅ 创建了数据迁移 SQL 脚本 (`scripts/seed-data.sql`)
+4. ✅ 创建了演示数据 SQL 脚本 (`database/seed/demo-data.sql`)
 5. ✅ 创建了详细的 Supabase 设置指南 (`docs/SUPABASE_SETUP.md`)
 
 ## 📋 你需要执行的步骤
@@ -62,7 +62,7 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=你的anon_public_key
 ### 步骤 6：导入初始数据
 
 1. 在 SQL Editor 中新建一个查询
-2. 打开项目中的 `scripts/seed-data.sql` 文件
+2. 打开项目中的 `database/seed/demo-data.sql` 文件
 3. 复制全部内容
 4. 粘贴到 SQL Editor 并点击 "Run"
 5. 确认数据导入成功
@@ -93,7 +93,7 @@ pnpm dev
 ## 📚 参考文档
 
 - 详细设置指南：`docs/SUPABASE_SETUP.md`
-- 数据迁移脚本：`scripts/seed-data.sql`
+- 演示数据脚本：`database/seed/demo-data.sql`
 
 ## ❓ 遇到问题？
 
