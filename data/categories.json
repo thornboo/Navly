@@ -1,0 +1,60 @@
+{
+  "categories": [
+    {
+      "id": "all",
+      "name": "All integrations",
+      "description": "View all available integrations",
+      "icon": "grid",
+      "order": 0,
+      "enabled": true
+    },
+    {
+      "id": "devtools",
+      "name": "DevTools",
+      "description": "Development tools and platforms",
+      "icon": "code",
+      "order": 1,
+      "enabled": true
+    },
+    {
+      "id": "messaging",
+      "name": "Messaging",
+      "description": "Communication and messaging platforms",
+      "icon": "message-circle",
+      "order": 2,
+      "enabled": true
+    },
+    {
+      "id": "monitoring",
+      "name": "Monitoring",
+      "description": "Monitoring and observability tools",
+      "icon": "activity",
+      "order": 3,
+      "enabled": true
+    },
+    {
+      "id": "productivity",
+      "name": "Productivity",
+      "description": "Productivity and collaboration tools",
+      "icon": "zap",
+      "order": 4,
+      "enabled": true
+    },
+    {
+      "id": "security",
+      "name": "Security",
+      "description": "Security and compliance tools",
+      "icon": "shield",
+      "order": 5,
+      "enabled": true
+    },
+    {
+      "id": "searching",
+      "name": "Searching",
+      "description": "Search and discovery tools",
+      "icon": "search",
+      "order": 6,
+      "enabled": true
+    }
+  ]
+}
