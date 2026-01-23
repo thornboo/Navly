@@ -3,6 +3,7 @@
 import React from 'react';
 import { Category } from '@/types';
 import { cn } from '@/lib/utils';
+import { Button } from '@/components/ui';
 
 interface CategoryTabsProps {
   categories: Category[];
@@ -18,7 +19,8 @@ export const CategoryTabs: React.FC<CategoryTabsProps> = ({
   return (
     <div className="flex flex-wrap gap-2">
       {categories.map((category) => (
-        <button
+        <Button
+          variant="ghost"
           key={category.id}
           onClick={() => onCategoryChange(category.id)}
           className={cn(
@@ -29,7 +31,7 @@ export const CategoryTabs: React.FC<CategoryTabsProps> = ({
           )}
         >
           {category.name}
-        </button>
+        </Button>
       ))}
     </div>
   );

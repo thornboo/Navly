@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { Input } from '@/components/ui';
+import { Search } from 'lucide-react';
 
 interface SearchBoxProps {
   value: string;
@@ -9,28 +10,13 @@ interface SearchBoxProps {
   placeholder?: string;
 }
 
-export const SearchBox: React.FC<SearchBoxProps> = ({
-  value,
-  onChange,
-  placeholder = 'Search...',
-}) => {
+export const SearchBox: React.FC<SearchBoxProps> = ({ value, onChange, placeholder }) => {
   return (
     <div className="relative w-full max-w-md">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="16"
-        height="16"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+      <Search
+        size={16}
         className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground"
-      >
-        <circle cx="11" cy="11" r="8" />
-        <path d="m21 21-4.3-4.3" />
-      </svg>
+      />
       <Input
         type="text"
         placeholder={placeholder}
