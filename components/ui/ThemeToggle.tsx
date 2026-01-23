@@ -3,6 +3,8 @@
 import React, { useEffect, useSyncExternalStore } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Sun, Moon } from 'lucide-react';
+import { useTranslations } from 'next-intl';
+import { MotionButton } from './motion-button';
 
 type Theme = 'light' | 'dark';
 
@@ -42,6 +44,7 @@ const subscribeTheme = (onStoreChange: () => void) => {
 };
 
 export const ThemeToggle: React.FC = () => {
+  const t = useTranslations('common');
   const theme = useSyncExternalStore(subscribeTheme, getThemeSnapshot, getThemeServerSnapshot);
 
   useEffect(() => {
@@ -56,12 +59,13 @@ export const ThemeToggle: React.FC = () => {
   };
 
   return (
-    <motion.button
+    <MotionButton
+      variant="topbarIconOutline"
+      size="icon"
       onClick={toggleTheme}
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
-      className="flex h-9 w-9 items-center justify-center rounded-lg border border-zinc-200 text-zinc-600 hover:bg-zinc-50 dark:border-zinc-800 dark:text-zinc-400 dark:hover:bg-zinc-900"
-      title={theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'}
+      title={theme === 'light' ? t('switchToDark') : t('switchToLight')}
     >
       <AnimatePresence mode="wait" initial={false}>
         {theme === 'light' ? (
@@ -86,6 +90,6 @@ export const ThemeToggle: React.FC = () => {
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.button>
+    </MotionButton>
   );
 };
