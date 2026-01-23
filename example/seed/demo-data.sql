@@ -1,4 +1,23 @@
--- 插入分类数据
+-- ============================================================================
+-- Navly Demo Data - Initial Seed Data
+-- ============================================================================
+-- This file contains demo data for development and testing purposes.
+-- It includes sample categories and integrations to demonstrate the app's
+-- functionality and data structure.
+--
+-- Location: example/seed/demo-data.sql
+--
+-- Tables populated:
+--   - categories: 7 sample categories
+--   - integrations: 16 sample integration tools
+--
+-- Usage:
+--   Execute this file in your Supabase SQL Editor or via psql:
+--   psql "your-database-url" < example/seed/demo-data.sql
+-- ============================================================================
+
+-- Insert category data
+-- Categories organize integrations into logical groups
 INSERT INTO categories (id, name, description, icon, order_weight, enabled) VALUES
 ('all', 'All integrations', 'View all available integrations', 'grid', 0, true),
 ('devtools', 'DevTools', 'Development tools and platforms', 'code', 1, true),
@@ -8,7 +27,9 @@ INSERT INTO categories (id, name, description, icon, order_weight, enabled) VALU
 ('security', 'Security', 'Security and compliance tools', 'shield', 5, true),
 ('searching', 'Searching', 'Search and discovery tools', 'search', 6, true);
 
--- 插入集成数据
+-- Insert integration data
+-- Each integration represents a tool or service that can be integrated
+-- Note: icon field uses path format (/icons/name.svg) - run update-icons.sql to convert to simple-icons format
 INSERT INTO integrations (id, name, description, icon, url, category, featured, tags, background_color, order_weight, enabled) VALUES
 ('sanity', 'Sanity', 'Real-time collaboration platform for structured content', '/icons/sanity.svg', 'https://www.sanity.io', 'devtools', true, ARRAY['cms', 'content', 'collaboration'], '#f03e2f', 100, true),
 ('buildkite', 'Buildkite', 'Buildkite is an open-source platform for running fast, secure, and scalable continuous integration pipelines', '/icons/buildkite.svg', 'https://buildkite.com', 'devtools', true, ARRAY['ci', 'cd', 'pipeline'], '#14cc80', 99, true),
