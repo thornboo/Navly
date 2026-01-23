@@ -1,0 +1,125 @@
+{
+  "common": {
+    "appName": "Navly",
+    "home": "Home",
+    "help": "Help",
+    "notifications": "Notifications",
+    "themeToggle": "Toggle theme",
+    "switchToDark": "Switch to dark mode",
+    "switchToLight": "Switch to light mode",
+    "switchToLanguage": "Switch to {language}",
+    "collapse": "Collapse sidebar",
+    "expand": "Expand sidebar"
+  },
+  "nav": {
+    "search": "Search",
+    "bookmarks": "Bookmarks",
+    "bilibili": "Bilibili",
+    "linuxdo": "LinuxDo Community",
+    "settings": "Settings"
+  },
+  "metadata": {
+    "title": "Navly - Modern Navigation Hub",
+    "description": "A modern navigation hub for your favorite tools and integrations"
+  },
+  "search": {
+    "title": "Search",
+    "placeholder": "Search integrations...",
+    "description": "Search all integration tools, categories and tags",
+    "addIntegration": "Add Integration",
+    "resultsCount": "Found {count} results",
+    "noResults": "No results found",
+    "noResultsDescription": "Try searching with different keywords",
+    "recentSearches": "Recent Searches",
+    "popularIntegrations": "Popular Integrations",
+    "clear": "Clear",
+    "loading": "Loading...",
+    "submenu": {
+      "quickAccess": "Quick Access",
+      "categorySearch": "Category Search",
+      "trending": "Trending",
+      "recent": "Recent",
+      "favorites": "Favorites",
+      "devtools": "Dev Tools",
+      "productivity": "Productivity",
+      "design": "Design"
+    }
+  },
+  "bookmarks": {
+    "title": "Bookmarks",
+    "integrations": "Integrations",
+    "sections": {
+      "account": "ACCOUNT",
+      "workspace": "WORKSPACE"
+    },
+    "menu": {
+      "profile": "Profile",
+      "teams": "Teams",
+      "notifications": "Notifications",
+      "storageAccounts": "Storage accounts",
+      "general": "General",
+      "members": "Members",
+      "plans": "Plans",
+      "billing": "Billing",
+      "developers": "Developers",
+      "integrations": "Integrations",
+      "security": "Security",
+      "emailCalendar": "Email and calendar"
+    }
+  },
+  "bilibili": {
+    "title": "Bilibili",
+    "addVideo": "Add Video",
+    "pageTitle": "Bilibili Page",
+    "pageDescription": "Your favorites, following and watch history will be displayed here",
+    "sections": {
+      "mine": "Mine",
+      "categories": "Categories"
+    },
+    "menu": {
+      "favorites": "Favorites",
+      "following": "Following",
+      "history": "History",
+      "anime": "Anime",
+      "tech": "Tech",
+      "life": "Life"
+    }
+  },
+  "linuxdo": {
+    "title": "LinuxDo Community",
+    "createPost": "Create Post",
+    "pageTitle": "LinuxDo Community",
+    "pageDescription": "Latest posts and discussions from LinuxDo community will be displayed here"
+  },
+  "settings": {
+    "title": "Settings",
+    "appSettings": "App Settings",
+    "appearance": {
+      "title": "Appearance",
+      "description": "Customize the appearance and theme settings of the app"
+    },
+    "notifications": {
+      "title": "Notifications",
+      "description": "Manage notification preferences and reminder settings"
+    },
+    "privacy": {
+      "title": "Privacy",
+      "description": "Control data privacy and security settings"
+    },
+    "about": {
+      "title": "About",
+      "description": "View app version and related information"
+    }
+  },
+  "integrations": {
+    "title": "Integrations",
+    "description": "Improve workflow with tailored tool integrations for seamless automation.",
+    "loading": "Loading integrations...",
+    "createIntegration": "Create integration",
+    "searchPlaceholder": "Search...",
+    "filter": "Filter",
+    "featuredTitle": "Featured integrations",
+    "allTitle": "All integrations",
+    "empty": "No integrations found. Try adjusting your filters."
+  }
+}

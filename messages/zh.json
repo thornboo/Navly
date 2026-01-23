@@ -1,0 +1,125 @@
+{
+  "common": {
+    "appName": "Navly",
+    "home": "首页",
+    "help": "帮助",
+    "notifications": "通知",
+    "themeToggle": "切换主题",
+    "switchToDark": "切换到深色模式",
+    "switchToLight": "切换到浅色模式",
+    "switchToLanguage": "切换到 {language}",
+    "collapse": "折叠侧边栏",
+    "expand": "展开侧边栏"
+  },
+  "nav": {
+    "search": "搜索",
+    "bookmarks": "书签",
+    "bilibili": "哔哩哔哩",
+    "linuxdo": "LinuxDo社区",
+    "settings": "设置"
+  },
+  "metadata": {
+    "title": "Navly - 现代导航中心",
+    "description": "一个面向常用工具与集成的现代化导航中心"
+  },
+  "search": {
+    "title": "搜索",
+    "placeholder": "搜索集成工具...",
+    "description": "搜索所有集成工具、分类和标签",
+    "addIntegration": "添加集成",
+    "resultsCount": "找到 {count} 个结果",
+    "noResults": "未找到结果",
+    "noResultsDescription": "尝试使用不同的关键词搜索",
+    "recentSearches": "最近搜索",
+    "popularIntegrations": "热门集成",
+    "clear": "清除",
+    "loading": "加载中...",
+    "submenu": {
+      "quickAccess": "快速访问",
+      "categorySearch": "分类搜索",
+      "trending": "热门搜索",
+      "recent": "最近搜索",
+      "favorites": "收藏搜索",
+      "devtools": "开发工具",
+      "productivity": "生产力工具",
+      "design": "设计工具"
+    }
+  },
+  "bookmarks": {
+    "title": "书签",
+    "integrations": "集成工具",
+    "sections": {
+      "account": "账户",
+      "workspace": "工作区"
+    },
+    "menu": {
+      "profile": "个人资料",
+      "teams": "团队",
+      "notifications": "通知",
+      "storageAccounts": "存储账户",
+      "general": "常规",
+      "members": "成员",
+      "plans": "计划",
+      "billing": "账单",
+      "developers": "开发者",
+      "integrations": "集成工具",
+      "security": "安全",
+      "emailCalendar": "邮件和日历"
+    }
+  },
+  "bilibili": {
+    "title": "哔哩哔哩",
+    "addVideo": "添加视频",
+    "pageTitle": "哔哩哔哩页面",
+    "pageDescription": "这里将展示您的收藏夹、关注和历史记录",
+    "sections": {
+      "mine": "我的",
+      "categories": "分类"
+    },
+    "menu": {
+      "favorites": "收藏夹",
+      "following": "关注",
+      "history": "历史记录",
+      "anime": "动画",
+      "tech": "科技",
+      "life": "生活"
+    }
+  },
+  "linuxdo": {
+    "title": "LinuxDo 社区",
+    "createPost": "发帖",
+    "pageTitle": "LinuxDo 社区",
+    "pageDescription": "这里将展示 LinuxDo 社区的最新帖子和讨论"
+  },
+  "settings": {
+    "title": "设置",
+    "appSettings": "应用设置",
+    "appearance": {
+      "title": "外观",
+      "description": "自定义应用的外观和主题设置"
+    },
+    "notifications": {
+      "title": "通知",
+      "description": "管理通知偏好和提醒设置"
+    },
+    "privacy": {
+      "title": "隐私",
+      "description": "控制数据隐私和安全设置"
+    },
+    "about": {
+      "title": "关于",
+      "description": "查看应用版本和相关信息"
+    }
+  },
+  "integrations": {
+    "title": "集成",
+    "description": "通过定制化工具集成提升工作流，实现无缝自动化。",
+    "loading": "正在加载集成...",
+    "createIntegration": "创建集成",
+    "searchPlaceholder": "搜索...",
+    "filter": "筛选",
+    "featuredTitle": "精选集成",
+    "allTitle": "全部集成",
+    "empty": "未找到集成，请尝试调整筛选条件。"
+  }
+}
