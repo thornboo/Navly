@@ -1,5 +1,5 @@
 import { IntegrationsPage } from '@/components/pages/integrations';
 
-export default function HomePage() {
+export default function Integrations() {
   return <IntegrationsPage />;
 }
