@@ -4,12 +4,9 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { MainLayout } from '@/components/layout';
-import { Bell } from 'lucide-react';
-import { ThemeToggle, LanguageToggle, MotionButton } from '@/components/ui';
 
 export default function SettingsPage() {
   const t = useTranslations('settings');
-  const tCommon = useTranslations('common');
 
   return (
     <MainLayout showSubmenu={false}>
@@ -18,19 +15,6 @@ export default function SettingsPage() {
         <div className="flex h-16 items-center justify-between border-b border-zinc-200 bg-white px-8 dark:border-zinc-800 dark:bg-zinc-950">
           <div className="flex items-center gap-4">
             <h1 className="text-lg font-semibold text-zinc-900 dark:text-zinc-50">{t('title')}</h1>
-          </div>
-          <div className="flex items-center gap-3">
-            <MotionButton
-              variant="topbarIcon"
-              size="icon"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              title={tCommon('notifications')}
-            >
-              <Bell size={18} />
-            </MotionButton>
-            <LanguageToggle />
-            <ThemeToggle />
           </div>
         </div>
 

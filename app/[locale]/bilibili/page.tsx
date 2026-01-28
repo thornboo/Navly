@@ -4,12 +4,11 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { MainLayout } from '@/components/layout';
-import { Bell, Plus, Tv } from 'lucide-react';
-import { ThemeToggle, LanguageToggle, MotionButton } from '@/components/ui';
+import { Plus, Tv } from 'lucide-react';
+import { MotionButton } from '@/components/ui';
 
 export default function BilibiliPage() {
   const t = useTranslations('bilibili');
-  const tCommon = useTranslations('common');
 
   return (
     <MainLayout>
@@ -20,17 +19,6 @@ export default function BilibiliPage() {
             <h1 className="text-lg font-semibold text-zinc-900 dark:text-zinc-50">{t('title')}</h1>
           </div>
           <div className="flex items-center gap-3">
-            <MotionButton
-              variant="topbarIcon"
-              size="icon"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              title={tCommon('notifications')}
-            >
-              <Bell size={18} />
-            </MotionButton>
-            <LanguageToggle />
-            <ThemeToggle />
             <MotionButton
               variant="topbarPrimary"
               whileHover={{ scale: 1.05 }}

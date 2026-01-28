@@ -2,17 +2,16 @@
 
 import React, { useState, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Search, X, Loader2, TrendingUp, Bell, Plus } from 'lucide-react';
+import { Search, X, Loader2, TrendingUp, Plus } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { Integration } from '@/types';
 import { getIntegrations } from '@/lib/data';
 import { IntegrationCard } from '../integrations/IntegrationCard';
-import { Input, ThemeToggle, LanguageToggle, MotionButton, Button } from '@/components/ui';
+import { Input, MotionButton, Button } from '@/components/ui';
 import { MainLayout } from '@/components/layout';
 
 export const SearchPage: React.FC = () => {
   const t = useTranslations('search');
-  const tCommon = useTranslations('common');
 
   const [searchQuery, setSearchQuery] = useState('');
   const [integrations, setIntegrations] = useState<Integration[]>([]);
@@ -105,17 +104,6 @@ export const SearchPage: React.FC = () => {
             <h1 className="text-lg font-semibold text-zinc-900 dark:text-zinc-50">{t('title')}</h1>
           </div>
           <div className="flex items-center gap-3">
-            <MotionButton
-              variant="topbarIcon"
-              size="icon"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              title={tCommon('notifications')}
-            >
-              <Bell size={18} />
-            </MotionButton>
-            <LanguageToggle />
-            <ThemeToggle />
             <MotionButton
               variant="topbarPrimary"
               whileHover={{ scale: 1.05 }}

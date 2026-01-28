@@ -10,11 +10,13 @@ import { cn } from '@/lib/utils';
 interface IntegrationCardProps {
   integration: Integration;
   featured?: boolean;
+  onVisit?: (integration: Integration) => void;
 }
 
 export const IntegrationCard: React.FC<IntegrationCardProps> = ({
   integration,
   featured = false,
+  onVisit,
 }) => {
   const { name, description, url, backgroundColor, icon } = integration;
 
@@ -32,6 +34,7 @@ export const IntegrationCard: React.FC<IntegrationCardProps> = ({
         href={url}
         target="_blank"
         rel="noopener noreferrer"
+        onClick={() => onVisit?.(integration)}
         className={cn(
           'group relative flex flex-col rounded-xl border border-zinc-200 bg-white p-5 transition-all hover:border-zinc-300 hover:shadow-md dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-zinc-700',
           featured && 'md:col-span-1'
