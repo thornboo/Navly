@@ -5,7 +5,6 @@ import { usePathname } from '@/i18n/routing';
 import { SidebarProvider } from './SidebarContext';
 import { PrimaryNav } from './PrimaryNav';
 import { SearchSubmenu } from './SearchSubmenu';
-import { BookmarksSubmenu } from './BookmarksSubmenu';
 import { BilibiliSubmenu } from './BilibiliSubmenu';
 
 interface MainLayoutProps {
@@ -23,9 +22,6 @@ export const MainLayout: React.FC<MainLayoutProps> = ({ children, showSubmenu = 
     if (pathname === '/' || pathname.startsWith('/search')) {
       return <SearchSubmenu />;
     }
-    if (pathname.startsWith('/bookmarks')) {
-      return <BookmarksSubmenu />;
-    }
     if (pathname.startsWith('/bilibili')) {
       return <BilibiliSubmenu />;
     }
@@ -39,7 +35,7 @@ export const MainLayout: React.FC<MainLayoutProps> = ({ children, showSubmenu = 
 
         {renderSubmenu()}
 
-        <main className="flex-1 overflow-y-auto bg-zinc-50 dark:bg-zinc-900">{children}</main>
+        <main className="flex-1 overflow-hidden bg-zinc-50 dark:bg-zinc-900">{children}</main>
       </div>
     </SidebarProvider>
   );

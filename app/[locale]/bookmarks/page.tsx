@@ -1,5 +1,5 @@
-import { IntegrationsPage } from '@/components/pages/integrations';
+import { BookmarksPage } from '@/components/pages/bookmarks';
 
-export default function Integrations() {
-  return <IntegrationsPage />;
+export default function BookmarksRoute() {
+  return <BookmarksPage />;
 }
