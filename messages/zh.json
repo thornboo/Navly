@@ -5,6 +5,8 @@
     "help": "帮助",
     "notifications": "通知",
     "themeToggle": "切换主题",
+    "lightMode": "浅色模式",
+    "darkMode": "深色模式",
     "switchToDark": "切换到深色模式",
     "switchToLight": "切换到浅色模式",
     "switchToLanguage": "切换到 {language}",
@@ -48,6 +50,28 @@
   "bookmarks": {
     "title": "书签",
     "integrations": "集成工具",
+    "description": "管理你的常用链接与工具，按分类快速访问。",
+    "loading": "正在加载书签...",
+    "addBookmark": "新增书签",
+    "searchPlaceholder": "搜索书签...",
+    "filter": "筛选",
+    "featuredTitle": "精选书签",
+    "allTitle": "全部书签",
+    "empty": "未找到书签，请尝试调整筛选条件。",
+    "resultsCount": "共 {count} 个书签",
+    "viewAll": "查看全部",
+    "sidebar": {
+      "categories": "分类",
+      "tags": "标签",
+      "design": "设计"
+    },
+    "sort": {
+      "recent": "最近访问",
+      "az": "A-Z"
+    },
+    "layout": {
+      "columns": "{count}列"
+    },
     "sections": {
       "account": "账户",
       "workspace": "工作区"

@@ -5,6 +5,8 @@
     "help": "Help",
     "notifications": "Notifications",
     "themeToggle": "Toggle theme",
+    "lightMode": "Light mode",
+    "darkMode": "Dark mode",
     "switchToDark": "Switch to dark mode",
     "switchToLight": "Switch to light mode",
     "switchToLanguage": "Switch to {language}",
@@ -48,6 +50,28 @@
   "bookmarks": {
     "title": "Bookmarks",
     "integrations": "Integrations",
+    "description": "Manage your links and tools with categories for quick access.",
+    "loading": "Loading bookmarks...",
+    "addBookmark": "Add bookmark",
+    "searchPlaceholder": "Search bookmarks...",
+    "filter": "Filter",
+    "featuredTitle": "Featured",
+    "allTitle": "All bookmarks",
+    "empty": "No bookmarks found. Try adjusting your filters.",
+    "resultsCount": "{count} bookmarks",
+    "viewAll": "View all",
+    "sidebar": {
+      "categories": "Categories",
+      "tags": "Tags",
+      "design": "Design"
+    },
+    "sort": {
+      "recent": "Recent",
+      "az": "A-Z"
+    },
+    "layout": {
+      "columns": "{count} cols"
+    },
     "sections": {
       "account": "ACCOUNT",
       "workspace": "WORKSPACE"
