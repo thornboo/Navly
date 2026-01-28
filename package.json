@@ -2,6 +2,10 @@
   "name": "navly",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "pnpm@10.28.0",
+  "engines": {
+    "node": ">=18"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -10,7 +14,7 @@
     "format:check": "prettier --check .",
     "lint": "eslint",
     "lint-staged": "lint-staged",
-    "prepare": "husky"
+    "prepare": "node -e \"const fs=require('fs'); process.exit(process.env.CI || !fs.existsSync('.git') ? 0 : 1)\" || husky"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
@@ -19,6 +23,14 @@
     ],
     "*.{json,md,css,scss,html,yml,yaml}": [
       "prettier --write"
+    ]
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@parcel/watcher",
+      "@swc/core",
+      "sharp",
+      "unrs-resolver"
     ]
   },
   "dependencies": {
