@@ -28,6 +28,12 @@ NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
 ```
 
+Or copy from the example:
+
+```bash
+cp .env.example .env.local
+```
+
 Load demo data (optional):
 
 ```bash
@@ -43,12 +49,20 @@ Run locally:
 pnpm dev
 ```
 
+## Git Hooks
+
+After `pnpm install`, Husky will run on `git commit` and:
+
+- format staged files with Prettier
+- lint/fix staged files with ESLint
+
 ## Scripts
 
 ```bash
 pnpm lint
 pnpm format
 pnpm format:check
+pnpm lint-staged
 pnpm build
 pnpm start
 ```

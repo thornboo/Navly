@@ -1,0 +1,2 @@
+# Format + lint only staged files to keep commits fast.
+pnpm -s lint-staged
