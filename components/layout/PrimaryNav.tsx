@@ -17,7 +17,7 @@ import {
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useSidebar } from './SidebarContext';
-import { MotionButton } from '@/components/ui';
+import { MotionButton, LanguageToggle, ThemeToggle } from '@/components/ui';
 
 interface PrimaryNavProps {
   className?: string;
@@ -127,6 +127,27 @@ export const PrimaryNav: React.FC<PrimaryNavProps> = ({ className }) => {
 
       {/* Bottom Icons */}
       <div className="flex flex-col gap-2 border-t border-zinc-200 px-2 pt-4 dark:border-zinc-800">
+        <div className="flex flex-col gap-2 pb-2">
+          <LanguageToggle
+            variant="ghost"
+            size={isExpanded ? 'default' : 'icon'}
+            showLabel={isExpanded}
+            className={cn(
+              'justify-start rounded-lg px-3 py-2.5 text-zinc-600 hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-400 dark:hover:bg-zinc-900 dark:hover:text-zinc-50',
+              isExpanded ? 'gap-3' : 'h-10 w-10 justify-center px-0 py-0'
+            )}
+          />
+          <ThemeToggle
+            variant="ghost"
+            size={isExpanded ? 'default' : 'icon'}
+            showLabel={isExpanded}
+            className={cn(
+              'justify-start rounded-lg px-3 py-2.5 text-zinc-600 transition-colors hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-400 dark:hover:bg-zinc-900 dark:hover:text-zinc-50',
+              isExpanded ? 'gap-3' : 'h-10 w-10 justify-center px-0 py-0'
+            )}
+          />
+        </div>
+
         <MotionButton
           variant="ghost"
           whileHover={{ scale: 1.02 }}

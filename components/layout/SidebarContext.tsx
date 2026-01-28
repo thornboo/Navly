@@ -1,6 +1,14 @@
 'use client';
 
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useEffect, useSyncExternalStore } from 'react';
+import {
+  getSidebarServerSnapshot,
+  getSidebarSnapshot,
+  markSidebarHydrated,
+  setSidebarExpanded,
+  subscribeSidebar,
+  toggleSidebarExpanded,
+} from '@/lib/sidebar';
 
 interface SidebarContextType {
   isExpanded: boolean;
@@ -11,26 +19,21 @@ interface SidebarContextType {
 
 const SidebarContext = createContext<SidebarContextType | undefined>(undefined);
 
-const STORAGE_KEY = 'navly-sidebar-expanded';
-
-// Helper function to get initial state from localStorage
-const getInitialState = (): boolean => {
-  if (typeof window === 'undefined') return false;
-  const stored = localStorage.getItem(STORAGE_KEY);
-  return stored === 'true';
-};
-
 export const SidebarProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [isExpanded, setIsExpanded] = useState(getInitialState);
-
-  // Save to localStorage on change
   useEffect(() => {
-    localStorage.setItem(STORAGE_KEY, String(isExpanded));
-  }, [isExpanded]);
+    markSidebarHydrated();
+    window.dispatchEvent(new Event('navly:sidebar-change'));
+  }, []);
 
-  const toggleSidebar = () => setIsExpanded((prev) => !prev);
-  const collapseSidebar = () => setIsExpanded(false);
-  const expandSidebar = () => setIsExpanded(true);
+  const isExpanded = useSyncExternalStore(
+    subscribeSidebar,
+    getSidebarSnapshot,
+    getSidebarServerSnapshot
+  );
+
+  const toggleSidebar = () => toggleSidebarExpanded();
+  const collapseSidebar = () => setSidebarExpanded(false);
+  const expandSidebar = () => setSidebarExpanded(true);
 
   return (
     <SidebarContext.Provider value={{ isExpanded, toggleSidebar, collapseSidebar, expandSidebar }}>

@@ -7,7 +7,19 @@ import { Globe } from 'lucide-react';
 import { localeNames, type Locale } from '@/i18n/config';
 import { MotionButton } from './motion-button';
 
-export const LanguageToggle: React.FC = () => {
+type LanguageToggleProps = {
+  className?: string;
+  showLabel?: boolean;
+  variant?: React.ComponentProps<typeof MotionButton>['variant'];
+  size?: React.ComponentProps<typeof MotionButton>['size'];
+};
+
+export const LanguageToggle: React.FC<LanguageToggleProps> = ({
+  className,
+  showLabel = true,
+  variant = 'topbarIcon',
+  size = 'default',
+}) => {
   const t = useTranslations('common');
   const locale = useLocale() as Locale;
   const router = useRouter();
@@ -20,16 +32,16 @@ export const LanguageToggle: React.FC = () => {
 
   return (
     <MotionButton
-      variant="topbarIcon"
-      size="default"
+      variant={variant}
+      size={size}
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
       onClick={toggleLanguage}
-      className="h-9 gap-2 px-3 text-sm"
+      className={className ?? (showLabel ? 'h-9 gap-2 px-3 text-sm' : undefined)}
       title={t('switchToLanguage', { language: locale === 'zh' ? 'English' : '简体中文' })}
     >
       <Globe size={16} />
-      <span className="font-medium">{localeNames[locale]}</span>
+      {showLabel ? <span className="font-medium">{localeNames[locale]}</span> : null}
     </MotionButton>
   );
 };
