@@ -49,6 +49,13 @@ Run locally:
 pnpm dev
 ```
 
+## Deploy to Vercel
+
+1. Import the GitHub repo in Vercel (Framework: Next.js)
+2. Set environment variables (Preview + Production):
+   - `NEXT_PUBLIC_SUPABASE_URL`
+   - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+
 ## Git Hooks
 
 After `pnpm install`, Husky will run on `git commit` and:
