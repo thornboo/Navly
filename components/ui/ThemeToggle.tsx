@@ -5,67 +5,50 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Sun, Moon } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { MotionButton } from './motion-button';
+import {
+  getThemeServerSnapshot,
+  getThemeSnapshot,
+  markThemeHydrated,
+  subscribeTheme,
+  toggleTheme as toggleThemePreference,
+} from '@/lib/theme';
 
-type Theme = 'light' | 'dark';
-
-const THEME_STORAGE_KEY = 'theme';
-const THEME_CHANGE_EVENT = 'navly:theme-change';
-
-const getSystemTheme = (): Theme =>
-  window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-
-const getStoredTheme = (): Theme | null => {
-  const value = localStorage.getItem(THEME_STORAGE_KEY);
-  if (value === 'light' || value === 'dark') return value;
-  return null;
+type ThemeToggleProps = {
+  className?: string;
+  variant?: React.ComponentProps<typeof MotionButton>['variant'];
+  size?: React.ComponentProps<typeof MotionButton>['size'];
+  showLabel?: boolean;
 };
 
-const getThemeSnapshot = (): Theme => getStoredTheme() ?? getSystemTheme();
-
-const getThemeServerSnapshot = (): Theme => 'light';
-
-const subscribeTheme = (onStoreChange: () => void) => {
-  const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-  const onMediaChange = () => onStoreChange();
-  const onStorage = (event: StorageEvent) => {
-    if (event.key === THEME_STORAGE_KEY) onStoreChange();
-  };
-  const onThemeChange = () => onStoreChange();
-
-  mediaQuery.addEventListener('change', onMediaChange);
-  window.addEventListener('storage', onStorage);
-  window.addEventListener(THEME_CHANGE_EVENT, onThemeChange);
-
-  return () => {
-    mediaQuery.removeEventListener('change', onMediaChange);
-    window.removeEventListener('storage', onStorage);
-    window.removeEventListener(THEME_CHANGE_EVENT, onThemeChange);
-  };
-};
-
-export const ThemeToggle: React.FC = () => {
+export const ThemeToggle: React.FC<ThemeToggleProps> = ({
+  className,
+  variant = 'topbarIconOutline',
+  size = 'icon',
+  showLabel = false,
+}) => {
   const t = useTranslations('common');
   const theme = useSyncExternalStore(subscribeTheme, getThemeSnapshot, getThemeServerSnapshot);
 
   useEffect(() => {
-    document.documentElement.classList.toggle('dark', theme === 'dark');
-  }, [theme]);
+    markThemeHydrated();
+    // Force a refresh after hydration so UI reflects the theme that was applied
+    // by the inline bootstrap script (or persisted preference).
+    window.dispatchEvent(new Event('navly:theme-change'));
+  }, []);
 
-  const toggleTheme = () => {
-    const nextTheme: Theme = theme === 'light' ? 'dark' : 'light';
-    localStorage.setItem(THEME_STORAGE_KEY, nextTheme);
-    document.documentElement.classList.toggle('dark', nextTheme === 'dark');
-    window.dispatchEvent(new Event(THEME_CHANGE_EVENT));
+  const onToggleTheme = () => {
+    toggleThemePreference(theme);
   };
 
   return (
     <MotionButton
-      variant="topbarIconOutline"
-      size="icon"
-      onClick={toggleTheme}
+      variant={variant}
+      size={size}
+      onClick={onToggleTheme}
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
       title={theme === 'light' ? t('switchToDark') : t('switchToLight')}
+      className={className}
     >
       <AnimatePresence mode="wait" initial={false}>
         {theme === 'light' ? (
@@ -90,6 +73,9 @@ export const ThemeToggle: React.FC = () => {
           </motion.div>
         )}
       </AnimatePresence>
+      {showLabel ? (
+        <span className="font-medium">{theme === 'dark' ? t('darkMode') : t('lightMode')}</span>
+      ) : null}
     </MotionButton>
   );
 };

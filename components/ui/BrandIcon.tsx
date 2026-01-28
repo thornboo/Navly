@@ -4,6 +4,7 @@ import React, { useState, useSyncExternalStore } from 'react';
 import Image from 'next/image';
 import * as SimpleIcons from 'simple-icons';
 import type { SimpleIcon } from 'simple-icons';
+import { getThemeServerSnapshot, getThemeSnapshot, subscribeTheme } from '@/lib/theme';
 
 interface BrandIconProps {
   brand?: string;
@@ -12,36 +13,6 @@ interface BrandIconProps {
   backgroundColor?: string;
   className?: string;
 }
-
-const getThemeSnapshot = (): 'light' | 'dark' => {
-  if (typeof window === 'undefined') return 'light';
-  return document.documentElement.classList.contains('dark') ? 'dark' : 'light';
-};
-
-const subscribeTheme = (onStoreChange: () => void) => {
-  if (typeof window === 'undefined') return () => {};
-
-  const observer = new MutationObserver((mutations) => {
-    mutations.forEach((mutation) => {
-      if (mutation.attributeName === 'class') {
-        onStoreChange();
-      }
-    });
-  });
-
-  observer.observe(document.documentElement, {
-    attributes: true,
-    attributeFilter: ['class'],
-  });
-
-  const onThemeChange = () => onStoreChange();
-  window.addEventListener('navly:theme-change', onThemeChange);
-
-  return () => {
-    observer.disconnect();
-    window.removeEventListener('navly:theme-change', onThemeChange);
-  };
-};
 
 export const BrandIcon: React.FC<BrandIconProps> = ({
   brand,
@@ -52,7 +23,7 @@ export const BrandIcon: React.FC<BrandIconProps> = ({
 }) => {
   const [imageError, setImageError] = useState(false);
   const simpleIcons = SimpleIcons as unknown as Record<string, SimpleIcon>;
-  const theme = useSyncExternalStore(subscribeTheme, getThemeSnapshot, () => 'light');
+  const theme = useSyncExternalStore(subscribeTheme, getThemeSnapshot, getThemeServerSnapshot);
 
   const getSimpleIcon = () => {
     if (!brand) return null;
